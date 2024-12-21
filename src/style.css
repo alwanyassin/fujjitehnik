@@ -1,0 +1,238 @@
+html {
+    scroll-behavior: smooth;
+  }
+  /* Navbar Transparan */
+  #navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1100; /* Pastikan navbar berada di atas elemen lainnya */
+  transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Navbar saat digulir */
+  .scrolled {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  /* Mobile Menu */
+  #mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0; /* Mulai dari sisi kanan */
+  width: 100%; /* Lebar menu */
+  height: 100vh; /* Menu memenuhi tinggi layar */
+  background-color: #0F172A;
+  color: white;
+  z-index: 1000; /* Tetap di atas konten utama */
+  transform: translateY(100%); /* Awalnya tersembunyi di luar layar */
+  opacity: 0; /* Awalnya tidak terlihat */
+  pointer-events: none; /* Nonaktifkan interaksi saat tersembunyi */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Pusatkan item menu secara vertikal */
+  padding: 2rem; /* Spasi dalam menu */
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan untuk kedalaman */
+  }
+
+  /* Saat menu terbuka */
+  #mobile-menu.open {
+  transform: translateY(0); /* Menu muncul */
+  opacity: 1; /* Menu terlihat */
+  pointer-events: auto; /* Aktifkan interaksi saat menu terlihat */
+  }
+
+  /* Styling untuk setiap item menu */
+  #mobile-menu ul {
+  list-style: none; /* Hilangkan bullet */
+  padding: 0;
+  margin: 0;
+  }
+
+  #mobile-menu li {
+  margin-bottom: 1.5rem; /* Spasi antar item menu */
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center; /* Rata ikon dan teks */
+  }
+
+  #mobile-menu li:last-child {
+  margin-bottom: 0; /* Hilangkan margin di item terakhir */
+  }
+
+  #mobile-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center; /* Rata dengan ikon */
+  gap: 0.75rem; /* Jarak antara ikon dan teks */
+  transition: color 0.3s ease-in-out;
+  }
+
+  #mobile-menu a:hover {
+  color: #3B82F6; /* Warna biru saat hover */
+  }
+
+  /* Divider untuk visual */
+  #mobile-menu .divider {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 1rem 0; /* Spasi atas dan bawah divider */
+  }
+
+  /* Tombol Tutup Menu Mobile */
+  #mobile-menu .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  }
+
+  /* Tombol Tutup Menu Mobile */
+  #mobile-menu .logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+  }
+
+  #mobile-menu .close-btn:hover {
+  color: #3B82F6; /* Warna biru saat hover */
+  }
+
+  /* Styling untuk Navbar Link */
+  .navbar a {
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  /* Efek hover pada navbar link */
+  .navbar a:hover {
+    color: #3B82F6;
+  }
+  body {
+    font-family: "Raleway", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in { animation: fadeIn 1s ease-in-out; }
+
+  .hero-bg {
+    background-image: url('/dist/img/hero-bg-new4.jpg');
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #3B82F6;
+  }
+
+  .scroll-down {
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+
+  .section-padding {
+    padding: 12rem 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 8rem 1rem;
+    }
+    .slick-dots li button:before {
+      color: #2563eb; /* Ubah warna dots menjadi biru */
+    }
+    .slick-next::before {
+      border-radius: 50%;
+      color: #2563eb;
+      padding: 5px;
+    }
+    .slick-prev::before {
+      border-radius: 50%;
+      color: #2563eb;
+      padding: 5px;
+    }
+  }
+
+  /* WhatsApp Widget */
+  .whatsapp-widget {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Jarak antara bubble teks dan ikon */
+    text-decoration: none;
+    z-index: 1000;
+  }
+
+  /* Bubble Text */
+  .whatsapp-bubble {
+    background-color: white;
+    color: #333; /* Warna teks */
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Border tipis abu-abu */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow untuk tampilan 3D */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Mencegah teks terpotong */
+  }
+
+  /* WhatsApp Icon */
+  .whatsapp-widget i {
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Warna hijau WhatsApp */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .whatsapp-widget i:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  }
